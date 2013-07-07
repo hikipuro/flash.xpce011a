@@ -8,6 +8,8 @@
 
 #define	NODATA	0xff
 
+#define BITMAP_WIDTH 352
+
 unsigned char* XBuf;
 unsigned char* bytes;
 short* soundBytes;
@@ -155,6 +157,8 @@ int initPCE()
 		fclose(fp);
 	}
 */
+
+	memset(bytes, 0, WIDTH * HEIGHT * 4);
 	
 	return 0;
 }
@@ -285,7 +289,7 @@ void PutImage(int X, int Y, int W, int H)
 	for (int i = Y; i < Y + H; i++) {
 		s = (unsigned char*)(XBuf + i * WIDTH + X);
 		for (int j = X; j < X + W; j++) {
-			int index = (i - Y) * W + (j - X);
+			int index = (i - Y) * BITMAP_WIDTH + (j - X);
 			*(d + index) = PalTable[*s++];
 		}
 	}

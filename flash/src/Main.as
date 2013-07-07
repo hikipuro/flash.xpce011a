@@ -31,7 +31,7 @@ package
 		/** 初期表示サイズ. */
 		private const _DEFAULT_SCALE:int = 3;
 		
-		private const _WIDTH:int = 256;
+		private const _WIDTH:int = 352;
 		private const _HEIGHT:int = 224;
 		
 		/** xpce 側から渡されたデータを描画するためのオブジェクト. */
