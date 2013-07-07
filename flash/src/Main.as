@@ -210,9 +210,11 @@ package
 		 * @param	e
 		 */
 		private function _onFileLoadComplete(e:Event):void {
-			_fileReference.data.position = 0x200;
-			//_fileReference.data.bytesAvailable
-			loadRom(0, _fileReference.data);
+			var data:ByteArray = _fileReference.data;
+			var offset:int = data.length % 0x1000;
+			data.position = offset;
+			trace("offset: " + offset);
+			loadRom(0, data);
 		}
 		
 		/**
